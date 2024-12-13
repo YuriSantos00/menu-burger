@@ -1,3 +1,10 @@
+<img src="https://cdn.discordapp.com/attachments/1225612992201363552/1317234751358111876/Captura_de_tela_2024-12-13_175938.png?ex=675df1f5&is=675ca075&hm=ebb5d43e930114ca5f91e225fb938a015022b447782f57c26bf3741743bb40b4&"/>
+<img src="https://cdn.discordapp.com/attachments/1225612992201363552/1317234751832199231/Captura_de_tela_2024-12-13_180004.png?ex=675df1f5&is=675ca075&hm=6e50941c83ab9b095d616c7e799ce535b16cf70e519b0cebbfed52b339903504&"/>
+<img src="https://cdn.discordapp.com/attachments/1225612992201363552/1317234752331448421/Captura_de_tela_2024-12-13_180031.png?ex=675df1f5&is=675ca075&hm=4fde20bea37913493ce7b5f48e4d2974f00ca9276a7963d98ce72433848229dc&"/>
+
+
+
+
 # Projeto: Hamburgueria
 
 Este projeto é um site desenvolvido para uma hamburgueria, utilizando **HTML**, **TailwindCSS** e **JavaScript**. O site permite que os clientes façam pedidos diretamente para o WhatsApp da hamburgueria, com funcionalidades adicionais como um carrinho de compras e a verificação se o restaurante está aberto ou fechado.
