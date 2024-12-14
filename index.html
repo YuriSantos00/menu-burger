@@ -4,18 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!--Notification library-->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-
+    <!--Fim do Notification library-->
     <!--ICONS-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--FIM ICONS-->
+    <!--ANIMATIONS ON SCROLL-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!--FIM DO ANIMATIONS ON SCROLL-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/output.css">
+     <!--SCRIPT ANIMATIONS ON SCROLL-->
+     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     <!--FIM DO SCRIPT ANIMATIONS ON SCROLL-->
+
 
     <title>Menu Burger</title>
 </head>
@@ -25,26 +32,30 @@
     <!--HEADER-->
     <header class="w-full h-[420px] bg-zinc-900 bg-home bg-cover bg-center">
         <div class="w-full h-full flex flex-col justify-center items-center">
-            <img src="./assets/hamb-1.png" alt="Logo da Estabecimento"
+            <img
+             data-aos="fade-right" data-aos-delay="100"
+             src="./assets/hamb-1.png" alt="Logo da Estabecimento"
                 class="w-32 h-32 rounded-full shadow-lg hover:scale-110 duration-200" />
-            <h1 class="text-4xl mt-4 mb-2 font-bold text-white">Burger</h1>
+            <h1 data-aos="fade-left" data-aos-delay="200" class="text-4xl mt-4 mb-2 font-bold text-white">Burger</h1>
 
             <span class="text-white font-medium">Rua dev 10,Centro</span>
 
-            <div class="bg-green-600 px-4 py-1 rounded-lg mt-5" id="date-span">
+            <div data-aos="fade-right" data-aos-delay="250" class="bg-green-600 px-4 py-1 rounded-lg mt-5" id="date-span">
                 <span>Seg á Dom - 18:00 as 22:00</span>
             </div>
         </div>
     </header>
     <!--FIM DO HEADER-->
-    <h2 class="text-2xl md:3xl font-bold text-center mt-9 mb-6">
+    <h2 data-aos="fade-right" data-aos-delay="300"
+     class="text-2xl md:3xl font-bold text-center mt-9 mb-6">
         Conheça nosso Menu</h2>
     <!--INICIO MENU-->
     <div id="menu">
 
         <main class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
             <!--PRODUTO ITEM-->
-            <div class="flex gap-2">
+            <div data-aos="fade-right" data-aos-delay="300"
+             class="flex gap-2">
                 <img src="./assets/hamb-1.png" alt="Hamburger Smash"
                     class="w-28 h-28 rounded-md hover:scale-110 hover:-rotates-2 duration-300">
 
@@ -65,7 +76,8 @@
             <!--FIM PRODUTO ITEM-->
 
             <!--PRODUTO ITEM-->
-            <div class="flex gap-2">
+            <div data-aos="fade-right" data-aos-delay="400"
+             class="flex gap-2">
                 <img src="./assets/hamb-2.png" alt="Hamburger Smash"
                     class="w-28 h-28 rounded-md hover:scale-110 hover:-rotates-2 duration-300">
 
@@ -87,7 +99,8 @@
 
 
             <!--PRODUTO ITEM-->
-            <div class="flex gap-2">
+            <div data-aos="fade-right" data-aos-delay="500"
+             class="flex gap-2">
                 <img src="./assets/hamb-3.png" alt="Hamburger Salad"
                     class="w-28 h-28 rounded-md hover:scale-110 hover:-rotates-2 duration-300">
 
@@ -109,7 +122,8 @@
 
 
             <!--PRODUTO ITEM-->
-            <div class="flex gap-2">
+            <div data-aos="fade-right" data-aos-delay="500"
+             class="flex gap-2">
                 <img src="./assets/hamb-4.png" alt="Hamburger da Casa"
                     class="w-28 h-28 rounded-md hover:scale-110 hover:-rotates-2 duration-300">
 
@@ -142,7 +156,8 @@
 
             <!--BEBIDA ITEM-->
 
-            <div class="flex gap-2 w-full">
+            <div data-aos="fade-right" data-aos-delay="400"
+             class="flex gap-2 w-full">
                 <img src="./assets/refri-1.png" alt="Coca Lata"
                     class="w-28 h-28 rounded-md hover:scale-110 hover:-rotates-2 duration-300">
 
@@ -162,7 +177,8 @@
 
             <!--BEBIDA ITEM-->
 
-            <div class="flex gap-2 w-full">
+            <div data-aos="fade-right" data-aos-delay="500"
+             class="flex gap-2 w-full">
                 <img src="./assets/refri-2.png" alt="Guarana Lata"
                     class="w-28 h-28 rounded-md hover:scale-110 hover:-rotates-2 duration-300">
 
