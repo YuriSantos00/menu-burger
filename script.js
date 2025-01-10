@@ -12,6 +12,10 @@ const closeModalBtn = document.getElementById("close-modal-btn");
 const cartCounter = document.getElementById("cart-count");
 const addressInput = document.getElementById("address");
 const addressWarn = document.getElementById("address-warn");
+const PersonName = document.getElementById("PersonName");
+const PersonPhone = document.getElementById("PersonPhone");
+const paymentMethod = document.getElementById("paymentMethod");
+const deliveryDate= document.getElementById("deliveryDate");
 
 
 let cart = [];
@@ -167,17 +171,21 @@ checkoutBtn.addEventListener("click",()=>{
     }
 
     //Enviar o pedido para api whatsapp
-    const cartItems = cart.map((item)=>{
-        return(
-            `${item.name} Quantidade: (${item.quantity}) Preço: R$ ${item.price} |`
-    )
-   
-    
-    }).join("")
- const message = encodeURIComponent(cartItems)
- const phone = "86994906155"
+    const initialMessage = `Olá me chamo ${PersonName.value} e gostaria de cotar o seguinte orçamento:\n`;
 
- window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`,"_blank")
+    const cartItems = cart.map((item) => {
+        return (
+            `${item.name} Quantidade: (${item.quantity})\n`
+        );
+    }).join("");
+
+    const message = encodeURIComponent(
+        `${initialMessage}\n${cartItems}\nTelefone: ${PersonPhone.value}\nNome: ${PersonName.value}\nEndereço: ${addressInput.value}\nMétodo de Pagamento: ${paymentMethod.value}\nPrazo de recebimento: ${deliveryDate.value}`
+    );
+    const phone = "5551985434503";
+
+
+    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
 
  cart = [];
  updateCartModal();
@@ -189,7 +197,7 @@ checkoutBtn.addEventListener("click",()=>{
 function checkRestaurantOpen(){
     const data = new Date();
     const hora = data.getHours();
-    return hora >= 12 && hora < 22; //true = restaurante esta aberto
+    return hora >= 08 && hora < 18; //true = restaurante esta aberto
 }
 
 const spanItem = document.getElementById("date-span")
