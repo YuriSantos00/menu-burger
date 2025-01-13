@@ -9,6 +9,7 @@ const cartItemsContainer = document.getElementById("cart-items");
 const cartTotal = document.getElementById("cart-total");
 const checkoutBtn = document.getElementById("checkout-btn");
 const closeModalBtn = document.getElementById("close-modal-btn");
+const closeModalBtn2 = document.getElementById("close-modal-btn2");
 const cartCounter = document.getElementById("cart-count");
 const addressInput = document.getElementById("address");
 const addressWarn = document.getElementById("address-warn");
@@ -36,6 +37,10 @@ cartModal.addEventListener('click', (event) => {
 
 })
 closeModalBtn.addEventListener('click', (event) => {
+    cartModal.style.display = "none"
+})
+
+closeModalBtn2.addEventListener('click', (event) => {
     cartModal.style.display = "none"
 })
 
@@ -73,39 +78,67 @@ function addToCart(name, price) {
 
 //Atualiza o carrinho
 function updateCartModal() {
- cartItemsContainer.innerHTML = "";
-  let total = 0;
+    cartItemsContainer.innerHTML = "";
+    let total = 0;
 
-  cart.forEach(item=>{
-    const cartItemsElement = document.createElement("div")
-    cartItemsElement.classList.add("flex","justify-between","mb-4","flex-col")
+    cart.forEach(item => {
+        const cartItemsElement = document.createElement("div");
+        cartItemsElement.classList.add("flex", "justify-between", "mb-4", "flex-col");
 
-    cartItemsElement.innerHTML = `
-    <div class="flex items-center justify-between">
-      <div>
-       <p class="font-bold">${item.name}</p>
-       <p>Quantidade:${item.quantity}</p>
-       <p class="font-medium mt-2">R$ ${item.price.toFixed(2)}</p>
-      </div>
+        cartItemsElement.innerHTML = `
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="font-bold">${item.name}</p>
+                <p>Quantidade: 
+                    <button class="decrease-quantity-btn bg-red text-white px-2 rounded" data-name="${item.name}">-</button>
+                    ${item.quantity}
+                    <button class="increase-quantity-btn bg-green text-white px-2 rounded" data-name="${item.name}">+</button>
+                </p>
+                <p class="font-medium mt-2">R$ ${item.price.toFixed(2)}</p>
+            </div>
+            <div>
+                <button class="remove-from-cart-btn text-red" data-name="${item.name}">Remover</button>
+            </div>
+        </div>
+        `;
+        total += item.price * item.quantity;
 
-      <div>
-      <button class="remove-from-cart-btn" data-name="${item.name}">Remover</button></div>
-    </div>
-    
-    `
-    total += item.price * item.quantity;
+        cartItemsContainer.appendChild(cartItemsElement);
+    });
 
+    cartTotal.textContent = total.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    });
 
-    cartItemsContainer.appendChild(cartItemsElement)
-  })
-  
-  cartTotal.textContent = total.toLocaleString("pt-BR",{
-    style: "currency",
-    currency:"BRL"
-  });
+    cartCounter.innerHTML = cart.length;
+}
 
+// Função para alterar a quantidade do item no carrinho
+cartItemsContainer.addEventListener("click", (event) => {
+    const name = event.target.getAttribute("data-name");
 
-  cartCounter.innerHTML = cart.length;
+    if (event.target.classList.contains("increase-quantity-btn")) {
+        changeItemQuantity(name, 1);
+    } else if (event.target.classList.contains("decrease-quantity-btn")) {
+        changeItemQuantity(name, -1);
+    } else if (event.target.classList.contains("remove-from-cart-btn")) {
+        removeItemCart(name);
+    }
+});
+
+function changeItemQuantity(name, change) {
+    const item = cart.find(item => item.name === name);
+
+    if (item) {
+        item.quantity += change;
+
+        if (item.quantity <= 0) {
+            removeItemCart(name);
+        } else {
+            updateCartModal();
+        }
+    }
 }
 
 //Função para remover o item do carrinho
@@ -197,7 +230,7 @@ checkoutBtn.addEventListener("click",()=>{
 function checkRestaurantOpen(){
     const data = new Date();
     const hora = data.getHours();
-    return hora >= 08 && hora < 18; //true = restaurante esta aberto
+    return hora >= 8 && hora < 18; //true = restaurante esta aberto
 }
 
 const spanItem = document.getElementById("date-span")
