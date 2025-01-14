@@ -18,6 +18,8 @@ module.exports = {
       'green':'#22c55e',
       'gray':'#4b5563',
       'slate':'#94a3b8',
+      'stone':'#0c0a09',
+      'slate-light':'#f1f5f9',
     },
 
   },
